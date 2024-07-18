@@ -28,30 +28,40 @@ df = pd.read_excel('AdventureWorks.xlsx')
 
 - Foram executadas várias linhas de comando, explorando os recursos da biblioteca __Pandas__ e demonstrando o seu poder para a realização de análises de dados. Alguns comando estão listados abaixo:
 
-    - df.head()
-    - df.shape
-    - df.dtypes
-    - df['Valor Venda'].sum()
-    - df.groupby('Marca')['Tempo_envio'].mean()
-    - df.isnull().sum()
+    ```
+    df.head()
+    df.shape
+    df.dtypes
+    df['Valor Venda'].sum()
+    df.groupby('Marca')['Tempo_envio'].mean()
+    df.isnull().sum()
+    ```
 
 - Também foram criadas novas colunas no DataFrame, com o objetivo de obter informações que não estavam disponível no arquivo original. Os códigos para criação destas colunas estão listados abaixo:
 
-    - df['Custo'] = df['Custo Unitário'].mul(df['Quantidade']) # Criando coluna de custo.
-    - df['Lucro'] = df['Valor Venda'] - df['Custo'] # Criando coluna de Lucro.
-    - df['Tempo_envio'] = df['Data Envio'] - df['Data Venda'] # Criando coluna com total de dias para enviar o produto.
+    ```
+    df['Custo'] = df['Custo Unitário'].mul(df['Quantidade']) # Criando coluna de custo.
+
+    df['Lucro'] = df['Valor Venda'] - df['Custo'] # Criando coluna de Lucro.
+
+    df['Tempo_envio'] = df['Data Envio'] - df['Data Venda'] # Criando coluna com total de dias para enviar o produto.
+    ```
 
 - Após a exploração dos recursos da biblioteca __Pandas__ criei alguns gráficos, que nos apresentam informações sobre a análise exploratória de dados. Para isso foram utilizados comando da biblioteca __Matplotlib__, com alguns destes comandos listados abaixo:
 
-    - df.groupby('Produto')['Quantidade'].sum().sort_values(ascending=True).plot.barh(title='Total de Produtos Vendidos')
+    ```
+    df.groupby('Produto')['Quantidade'].sum().sort_values(ascending=True).plot.barh(title='Total de Produtos Vendidos')
     plt.xlabel('Total')
     plt.ylabel('Produto');
-    - df.groupby(df['Data Venda'].dt.year)['Lucro'].sum().plot.bar(title='Lucro por Ano')
+
+    df.groupby(df['Data Venda'].dt.year)['Lucro'].sum().plot.bar(title='Lucro por Ano')
     plt.xlabel('Ano')
     plt.ylabel('Receita');
-    - df_2009.groupby(df_2009['Data Venda'].dt.month)['Lucro'].sum().plot(title='Lucro x Mês')
+
+    df_2009.groupby(df_2009['Data Venda'].dt.month)['Lucro'].sum().plot(title='Lucro x Mês')
     plt.xlabel('Mês')
     plt.ylabel('Lucro');
+    ```
 
 ## Conclusão
 
